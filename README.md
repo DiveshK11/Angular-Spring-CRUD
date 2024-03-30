@@ -1,2 +1,2 @@
 # Angular-SpringBoot-CRUD
- Angular SpringBoot Basic CRUD App
+ This is a Basic CRUD operation using Angular 15 and Spring Boot with DataBase as MySQL
