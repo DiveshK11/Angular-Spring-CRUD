@@ -14,7 +14,9 @@ export class EmployeeListComponent implements OnInit {
   employee: Employee = new Employee();
 
   employees?: Employee[];
+  filteredEmployee : any ;
   searchValue?: string;
+  noDataFound? : boolean ;
 
   constructor(private employeeService: EmployeeService,
     private router : Router) { }
@@ -45,6 +47,11 @@ export class EmployeeListComponent implements OnInit {
   employeeDetails(id?:number){
     this.router.navigate(['employee-details',id]);
 
+  }
+
+  applyFilter(value : any){
+    this.filteredEmployee = this.employees?.filter(emp => emp.firstName?.toLowerCase().includes(value.toLowerCase()));
+    this.noDataFound = this.filteredEmployee.length === 0 ? true : false;
   }
 
 }

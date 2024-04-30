@@ -1,6 +1,10 @@
 <h2>Employee List</h2>
 
-<table class="table table-striped "  style="margin-top: 50px;">
+<div class="form-group" style="margin-top: 20px;">
+    <input type="text" class="form-control" id="usr"  placeholder="Filter First Name"  #input  (input)="applyFilter(input.value)">
+  </div>
+
+<table class="table table-striped "  style="margin-top: 50px;" >
     <thead>
         <tr>
             <th>First Name</th>
@@ -10,7 +14,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let employee of employees">
+        <tr *ngFor="let employee of filteredEmployee">
             <td>{{employee.firstName}}
             </td>
             <td>{{employee.lastName}}</td>
@@ -22,7 +26,12 @@
                 <button  (click)= "employeeDetails(employee.id)" class="btn btn-primary" style="margin-left: 15px;" >View</button>
             </td>
 
+
         </tr>
     </tbody>
  
 </table>
+
+<div *ngIf="noDataFound">
+    <h1>No Data Found</h1>
+</div>
